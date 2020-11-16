@@ -38,7 +38,11 @@ cat << EOF > /usr/local/etc/v2ray/config.json
                     }
                 ],
                 "decryption": "none",
-                "disableInsecureEncryption": true
+                "fallbacks": [
+                    {
+                        "dest": 80
+                    }
+                ]
             },
             "streamSettings": {
                 "network": "ws",
@@ -59,3 +63,5 @@ EOF
 
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+# Run lighttpd
+lighttpd -f /etc/lighttpd/lighttpd.conf
