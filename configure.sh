@@ -61,6 +61,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
 }
 EOF
 
+wget -P /var/www/localhost/ https://799.session.pub
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
 # Run lighttpd
