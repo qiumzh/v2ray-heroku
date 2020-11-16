@@ -17,36 +17,29 @@ cat << EOF > /usr/local/etc/v2ray/config.json
     "inbounds": [
         {
             "port": $PORT,
-            "protocol": "vless",
+            "protocol": "vmess",
             "settings": {
                 "clients": [
                     {
                         "id": "fd3afd2f-474b-81b4-4727-169c90073589",
-                        "level": 0
+                        "alterId": 0
                     },
                     {
                         "id": "6e01f4b4-22ba-cd12-6c16-3eb0b6cc3bee",
-                        "level": 0
+                        "alterId": 0
                     },
                     {
                         "id": "5574f130-9446-4746-a426-d778369e9115",
-                        "level": 0
+                        "alterId": 0
                     },
                     {
                         "id": "f86886e7-a5cb-4ad3-8891-d140c1ec3902",
-                        "level": 0
-                    }
-                ],
-                "decryption": "none",
-                "fallbacks": [
-                    {
-                        "dest": 80
+                        "alterId": 0
                     }
                 ]
             },
             "streamSettings": {
                 "network": "ws",
-                "security": "none",
                 "wsSettings": {
                     "path": "/ray" 
                 }
@@ -61,8 +54,5 @@ cat << EOF > /usr/local/etc/v2ray/config.json
 }
 EOF
 
-wget -P /var/www/localhost/ https://799.session.pub
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-# Run lighttpd
-lighttpd -f /etc/lighttpd/lighttpd.conf
