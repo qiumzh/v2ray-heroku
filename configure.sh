@@ -29,16 +29,38 @@ cat << EOF > /usr/local/etc/xray/config.json
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": "/xray" 
+                    "path": "/xray"
                 }
             }
         }
     ],
     "outbounds": [
         {
-            "protocol": "freedom"
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIP"
+            },
+            "tag": "ip-out"
         }
-    ]
+    ],
+    "dns": {
+        "servers": [
+            "1.1.1.1",
+            "8.8.8.8",
+            "9.9.9.9",
+            "208.67.222.222"
+        ]
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "type": "field",
+                "outboundTag": "ip-out",
+                "network": "tcp,udp"
+            }
+        ]
+    }
 }
 EOF
 
