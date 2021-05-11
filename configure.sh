@@ -49,7 +49,8 @@ cat << EOF > /usr/local/etc/xray/config.json
             "8.8.8.8",
             "9.9.9.9",
             "208.67.222.222"
-        ]
+        ],
+        "queryStrategy": "UseIPv4"
     },
     "routing": {
         "domainStrategy": "IPIfNonMatch",
