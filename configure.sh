@@ -38,14 +38,14 @@ cat << EOF > /usr/local/etc/xray/config.json
         {
             "protocol": "freedom",
             "settings": {
-                "domainStrategy": "UseIP"
+                "domainStrategy": "UseIPv4"
             },
             "tag": "ip-out"
         }
     ],
     "dns": {
         "servers": [
-            "1.1.1.1",
+            "https+local://1.1.1.1/dns-query",
             "8.8.8.8",
             "9.9.9.9",
             "208.67.222.222"
